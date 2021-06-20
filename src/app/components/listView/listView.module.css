@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0;
+  position: relative;
+  top: 70px;
+}
+
+.gridItems {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
