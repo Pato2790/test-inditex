@@ -18,3 +18,15 @@
 input:focus {
   outline: none;
 }
+
+@media (max-width: 576px) {
+  .inputSearch {
+    width: 90%;
+    float: unset;
+    margin-bottom: 25px;
+  }
+
+  .container {
+    margin: 0;
+  }
+}

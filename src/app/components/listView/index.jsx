@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useFetch } from '../../api/index'
 import Item from '../item'
 import Search from '../search'
@@ -7,6 +8,11 @@ import styles from './listView.module.css'
 const ListView = () => {
   const [productsList, loading] = useFetch('api/product')
   const [searchText, setSearchText] = useState('')
+  const history = useHistory()
+
+  const showItemDetails = (idItem) => {
+    history.push(`/details/${idItem}`)
+  }
 
   const onSearchTextChange = ({ target }) => {
     setSearchText(target.value.toLowerCase())
@@ -21,7 +27,7 @@ const ListView = () => {
       : <div className={styles.gridItems}>
         {
           filteredProducts.map((item) => {
-            return <Item key={item.id} item={item} />
+            return <Item key={item.id} item={item} onItemSelected={() => showItemDetails(item.id)} />
           })
         }
       </div>
@@ -29,7 +35,7 @@ const ListView = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Products List</h1>
+      <h1>Lista de Productos</h1>
       <Search searchText={searchText} onSearchTextChange={onSearchTextChange} />
       {
         loading

@@ -1,13 +1,11 @@
 import React from 'react'
-import Header from './app/components/header'
-import ListView from './app/components/listView'
+import RouterApp from './app/router'
 import './App.css'
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <ListView />
+      <RouterApp />
     </div>
   )
 }

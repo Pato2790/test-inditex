@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 
-const useFetch = (path) => {
+const useFetch = (path, id) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
-  async function fetchUrl () {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/${path}`)
+  async function fetchUrl() {
+    const url = id
+      ? `${process.env.REACT_APP_API_URL}/${path}/${id}`
+      : `${process.env.REACT_APP_API_URL}/${path}`
+      
+    const response = await fetch(url)
     const json = await response.json()
     setData(json)
     setLoading(false)
@@ -18,4 +22,4 @@ const useFetch = (path) => {
   return [data, loading]
 }
 
-export { useFetch }
+export default useFetch

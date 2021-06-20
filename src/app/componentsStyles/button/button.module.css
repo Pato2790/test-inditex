@@ -1,0 +1,15 @@
+.btn {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  border: solid #1f628d 2px;
+  text-decoration: none;
+  margin: 1%;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}

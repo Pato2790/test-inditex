@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './item.module.css'
 
-const Item = ({ item }) => {
+const Item = ({ item, onItemSelected }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onItemSelected}>
       <img src={item.imgUrl} alt="product" className={styles.productImg} />
       <div className={styles.container}>
         <p><b>Brand:</b> {item.brand}</p>
@@ -22,7 +22,8 @@ Item.propTypes = {
     model: PropTypes.string,
     price: PropTypes.string,
     imgUrl: PropTypes.string
-  })
+  }),
+  onItemSelected: PropTypes.func
 }
 
 Item.defaultProps = {
@@ -32,7 +33,8 @@ Item.defaultProps = {
     model: '',
     price: '',
     imgUrl: ''
-  })
+  }),
+  onItemSelected: () => { }
 }
 
 export default Item

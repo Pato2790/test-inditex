@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styles from './header.module.css'
 
@@ -6,7 +7,7 @@ const Header = ({ cartCount }) => {
   return (
     <div className={styles.navBar}>
       <h2 className={styles.navBarTitle}>
-        Inditex
+        <Link to='/' className={styles.link}>Inditex</Link>
       </h2>
       <div className={styles.navBarCartCont}>
         <h2 className={styles.navBarCartCount}>{cartCount}</h2>
