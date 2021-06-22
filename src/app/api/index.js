@@ -1,3 +1,4 @@
-import useFetch from './useFetch'
+import useGet from './useGet'
+import usePost from './usePost'
 
-export { useFetch }
+export { useGet, usePost }

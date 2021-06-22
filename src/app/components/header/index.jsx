@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import { AppContext } from '../../helpers/appContext'
 import styles from './header.module.css'
 
-const Header = ({ cartCount }) => {
+const Header = () => {
+  const { cartCount } = useContext(AppContext)
+
   return (
     <div className={styles.navBar}>
       <h2 className={styles.navBarTitle}>
@@ -14,14 +16,6 @@ const Header = ({ cartCount }) => {
       </div>
     </div>
   )
-}
-
-Header.propTypes = {
-  cartCount: PropTypes.number
-}
-
-Header.defaultProps = {
-  cartCount: 0
 }
 
 export default Header

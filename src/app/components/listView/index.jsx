@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useFetch } from '../../api/index'
+import { useGet } from '../../api'
+import { PRODUCTS_GET } from '../../api/constants'
+import { DETAILS } from '../../router/constants'
 import Item from '../item'
 import Search from '../search'
+import Loading from '../../componentsStyles/loading'
 import styles from './listView.module.css'
 
 const ListView = () => {
-  const [productsList, loading] = useFetch('api/product')
+  const [productsList, loading] = useGet(PRODUCTS_GET)
   const [searchText, setSearchText] = useState('')
   const history = useHistory()
 
   const showItemDetails = (idItem) => {
-    history.push(`/details/${idItem}`)
+    history.push(`${DETAILS}/${idItem}`)
   }
 
   const onSearchTextChange = ({ target }) => {
@@ -39,7 +42,7 @@ const ListView = () => {
       <Search searchText={searchText} onSearchTextChange={onSearchTextChange} />
       {
         loading
-          ? <p>Loading</p>
+          ? <Loading body={'Obteniendo todos los productos...'}/>
           : filertProduct()
       }
     </div>

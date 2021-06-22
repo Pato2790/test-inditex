@@ -6,10 +6,11 @@ const Item = ({ item, onItemSelected }) => {
   return (
     <div className={styles.card} onClick={onItemSelected}>
       <img src={item.imgUrl} alt="product" className={styles.productImg} />
+      <hr />
       <div className={styles.container}>
         <p><b>Brand:</b> {item.brand}</p>
         <p><b>Model:</b> {item.model}</p>
-        <p><b>Price:</b> {item.price}</p>
+        <p><b>Price:</b> {item.price ? `${item.price} euros` : '-'}</p>
       </div>
     </div>
   )

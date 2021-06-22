@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-const useFetch = (path, id) => {
+const useGet = (path, id) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
-  async function fetchUrl() {
+  async function fetchUrl () {
     const url = id
       ? `${process.env.REACT_APP_API_URL}/${path}/${id}`
       : `${process.env.REACT_APP_API_URL}/${path}`
-      
-    const response = await fetch(url)
-    const json = await response.json()
-    setData(json)
-    setLoading(false)
+
+    const { data } = await axios.get(url)
+    setData(data)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
   }
 
   useEffect(() => {
@@ -22,4 +24,4 @@ const useFetch = (path, id) => {
   return [data, loading]
 }
 
-export default useFetch
+export default useGet

@@ -6,7 +6,7 @@ const Select = ({ name, value, options, onChangeSelect }) => {
   return (
     <div className={styles.select}>
       <select name={name} value={value} onChange={onChangeSelect}>
-        {options.map(({ code, name }) => <option key={code} value={name}>{name}</option>)}
+        {options.map(({ code, name }) => <option key={code} value={code}>{name}</option>)}
       </select>
       <div className={styles.select_arrow}>
       </div>
@@ -16,18 +16,15 @@ const Select = ({ name, value, options, onChangeSelect }) => {
 
 Select.propTypes = {
   name: PropTypes.string,
-  value: PropTypes.string,
-  options: PropTypes.object,
+  value: PropTypes.number,
+  options: PropTypes.array,
   onChangeSelect: PropTypes.func
 }
 
 Select.defaultProps = {
   name: '',
-  value: '',
-  options: {
-    code: '',
-    name: ''
-  },
+  value: 0,
+  options: [],
   onChangeSelect: () => { }
 }
 
