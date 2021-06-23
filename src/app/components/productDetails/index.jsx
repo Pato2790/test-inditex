@@ -43,7 +43,7 @@ const ProductDetails = ({ product, cookies }) => {
         <p><b>OS:</b> {product.os}</p>
         <p><b>Resolución:</b> {product.displayResolution}</p>
         <p><b>Batería:</b> {product.battery}</p>
-        <p><b>Camara Primaria:</b> {product.primaryCamera.join(',')}</p>
+        <p><b>Camara Primaria:</b> {Array.isArray(product.primaryCamera) ? product.primaryCamera.join(',') : product.primaryCamera}</p>
         <p><b>Camara Secundaria:</b> {product.secondaryCmera}</p>
         <p><b>Dimensiones:</b> {product.dimentions}</p>
         <p><b>Peso:</b> {product.weight ? `${product.weight} gramos` : '-'}</p>

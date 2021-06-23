@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useGet } from '../../api'
 import { PRODUCTS_GET } from '../../api/constants'
@@ -9,10 +9,6 @@ import styles from './detailsView.module.css'
 const DetailsView = () => {
   const { id } = useParams()
   const [product, loading] = useGet(PRODUCTS_GET, id)
-
-  useEffect(() => {
-    console.log(product)
-  }, [product])
 
   return (
     <>

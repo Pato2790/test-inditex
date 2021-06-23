@@ -30,9 +30,9 @@ Item.propTypes = {
 Item.defaultProps = {
   item: PropTypes.objectOf({
     id: '',
-    brand: '',
-    model: '',
-    price: '',
+    brand: 'Sin información',
+    model: 'Sin información',
+    price: '-',
     imgUrl: ''
   }),
   onItemSelected: () => { }

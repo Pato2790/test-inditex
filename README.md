@@ -25,3 +25,7 @@ Builds the app for production to the `build` folder.
 ### `npm run lint`
 
 Check code with standard ESLint configuration
+
+
+## NOTE
+- This test have a .env file with some necessary configuration like api_url and cookies_minutes_expired
